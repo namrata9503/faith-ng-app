@@ -1,0 +1,292 @@
+<section id="navbar-faith">
+  <div class="container-fluid m-0 ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky " #stickyMenu [class.sticky]="sticky">
+      <a class="navbar-brand" routerLink="/"  routerLinkActive="active">
+        <img src="../assets/images/logo1.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item  active">
+            <a class="nav-link  text-center p-4 mx-auto" routerLink="/work">How it works <span
+                class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  text-center p-4 mx-auto" routerLink="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  text-center p-4 mx-auto" routerLink="/testimonials">Testimonials</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link  text-center p-4 mx-auto " routerLink="/contact">Contact</a>
+          </li>
+         
+        </ul>
+
+      </div>
+
+      <span class="navbar-phone ">
+        <i class="fas fa-phone-alt text-white "></i> +6 11978970
+      </span>
+      <div class="align-items-center ">
+        <span class="small"><i class="fas fa-map-marker-alt pr-1 text-warning"></i>Located in Goshen,
+          Indiana</span><br>
+        <a class="offer btn btn-link d-inline" href="#">
+          GET My Cash OFFER
+        </a>
+      </div>
+    </nav>
+
+  </div>
+
+
+
+
+</section>
+
+<!-- navbar ends -->
+
+<!-- main form section -->
+<section id="main-form">
+  <div class="container-fluid">
+    <div class="img-main img-fluid">
+      <div class="row">
+
+        <div class="col-md-5 content-main">
+          <div class="text-main col-12 wow bounceInDown" data-wow-duration="3s">
+            THE AREA'S MOST TRUSTED CASH BUYER!
+          </div>
+
+
+        </div>
+        <div id="" class="form-offer col-md-5 py-3 " data-wow-duration="5s" data-wow-delay="7s">
+
+          <form class="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+          <div class="form-group  py-2">
+              <input type="text" formControlName="name" class="form-control " id="name" placeholder="NAME"
+                [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required" class="text-danger"> Name is required</div>
+              </div>
+            </div>
+
+            <div class="form-group  py-2">
+              <input type="tel" formControlName="phone" class="form-control " id="phone" placeholder="PHONE"
+                [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+              <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                <div *ngIf="f.phone.errors.required">phone is required</div>
+              </div>
+
+            </div>
+            <div class="row mx-auto py-2 justify-content-between">
+              <div class="form-group col-md-6 ">
+                <input type="text" formControlName="address" class="form-control " id="address"
+                  [ngClass]="{ 'is-invalid': submitted && f.address.errors }" placeholder="address">
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                  <div *ngIf="submitted && f['address'].errors">address is required</div>
+                </div>
+              </div>
+              <div class="form-group  col-md-5">
+                <input type="text" formControlName="city" class="form-control " id="city"
+                  [ngClass]="{ 'is-invalid': submitted && f.city.errors }" placeholder="City">
+                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                  <div *ngIf="submitted && f['city'].errors">city is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="py-2">
+              <button class="btn-offer btn btn-link btn-block btn-lg ">Get my cash offer
+
+              </button>
+
+              <!-- <a class=" btn-offer btn btn-link btn-block btn-lg wow bounceInDown " href="#"
+                 data-wow-duration="2s"
+                  data-wow-delay="16s">
+                  
+                </a> -->
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- main section ends-->
+
+<!-- management section -->
+
+<section id="management" class="">
+  <div class="container mx-auto">
+    <div class="row   justify-content-between text-justify row-management">
+      <div class="col-md-6 management-text justify-content-between">
+        <p class="mb-2">You’ve got a house.
+          A house you’ve had too long, a house you don’t need,
+          a house you need to sell quickly.</p>
+        <p class="mb-2">Whatever the reason, if you’re considering selling
+          fast and for cash, sell to the area’s most trusted cash buyer, Good Faith Management.</p>
+        <p class="mb-2">We don’t just buy houses for cash,
+          we take over properties as is, making sure you don’t have to do anything but
+          accept a fair price for your home.
+          In other words, no more headaches, no more waiting, just cash</p>
+        <p class="mb-2">Whatever problems your house has –
+          renters, repairs, removing junk – we want to take it on.
+          And even if we can’t buy it, we’ll recommend another solution.</p>
+        <p class="mb-2">Don’t settle for a buyer who’s just looking for a bargain.
+          Go with the experienced real estate investors who will
+          give you a fair price for your home, and go above and beyond
+          to ensure the best experience possible.</p>
+        <h5 class="font-weight-900 managemen-hrading">Go with Good Faith Management. </h5>
+      </div>
+      <div class="col-md-5 text-center justify-content-center">
+        <img src="../assets/img/main1.jpg" alt="management home" class="img-fluid management-img mb-4">
+        <h3 class="font-weight-bolder">No Commissions or Fees</h3>
+        <p class="m-2">See why selling to Good Faith is more affordable than listing with a real estate agent.</p>
+        <button type="button" class="btn btn-outline-dark p-2 mt-2 mb-3">Learn More</button>
+
+      </div>
+    </div>
+    <div class="row mt-5 justify-content-between mb-5 ">
+      <div class="col-md-3 box-management align-content-between">
+        <i class="far fa-clock fa-3x font-weight-bolder"></i>
+        <h2 class="font-weight-bolder">10+</h2>
+        <p class="">Years in
+          Business</p>
+      </div>
+      <div class="col-md-3 box-management">
+        <i class="fas fa-home fa-3x font-weight-bolder"></i>
+        <h2 class="font-weight-bolder">400+</h2>
+        <p class="">Houses
+          Purchased</p>
+      </div>
+      <div class="col-md-3 box-management">
+        <i class="fas fa-key fa-3x font-weight-bolder"></i>
+        <h2 class="font-weight-bolder">2-5</h2>
+        <p class="">Houses Purchased Per
+          Month (Average)</p>
+      </div>
+
+    </div>
+    <div class="row  mt-5 justify-content-between mb-5">
+      <div class="col-md-3 box-management">
+        <i class="far fa-clipboard fa-3x font-weight-bolder"></i>
+        <h2 class="font-weight-bolder">7</h2>
+        <p class="">Days We can
+          Close in</p>
+      </div>
+      <div class="col-md-3 box-management">
+        <i class="fas fa-home fa-3x font-weight-bolder"></i>
+        <h2 class="font-weight-bolder">$1 - $250K
+        </h2>
+        <p class="">Price of the
+          Homes We Buy</p>
+      </div>
+      <div class="col-md-3 ">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- management section ends -->
+
+<!-- purchased section  -->
+<section id="purchase">
+  <div class="container-fluid">
+    <div class="row">
+
+    </div>
+  </div>
+</section>
+<!-- purchased section ends -->
+
+<!-- purchased home slider -->
+<section id="slider" class="mx-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7 content-main">
+        <div class="text-main col-12 mb-5 text-dark" data-wow-duration="3s">
+            HOMES WE'VE PURCHASED!!
+                  </div>
+      </div>
+      <owl-carousel [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+        <div class="item" *ngFor="let image of images;let i= index">
+          <img class="slide-image" src="{{image.image}}">
+          <div class="slide-text">
+            <h4>{{image.text}}</h4>
+          </div>
+        </div>
+      </owl-carousel>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- purchased home slider -->
+
+
+<footer>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row ">
+          <div class="col-md-4 text-right">
+            <img src="../assets/images/logo1.png" class="footer-img" alt="logo">
+          </div>
+          <div class="col-md-8 text-left pl-2 footer-heading">
+            <h1 class="text-capitalize footer-heading">good faith</h1>
+            <p class="">management</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-offer py-3">
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mx-1">
+                  <input type="text" class="form-control" id="name" placeholder="NAME">
+
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mx-1">
+                  <input type="tel" class="form-control" id="name" placeholder="PHONE">
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 my-3">
+                <div class="form-group mx-1">
+                  <input type="tel" class="form-control" id="name" placeholder="(Street,City,State,ZIP)">
+
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <a class=" btn-offer btn btn-link btn-block btn-lg" href="work#goForm">
+                  GET My Cash OFFER
+                </a>
+
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <hr class="text-white mt-5 bg-secondary">
+    <p class="small text-right text-white pt-5 mb-5">Copyright 2018 © All rights Reserved. Design by
+      namrata sid korgaonkar</p>
+  </div>
+</footer>

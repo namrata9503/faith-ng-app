@@ -1,0 +1,367 @@
+/*yelllow #FFC914*/
+/* whitesmoke */
+/* black #110F10 */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    font-family: 'Prompt', sans-serif;
+    overflow: hidden ;
+  
+  
+  }
+  /* html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  } */
+  
+  .navbar {
+    background-color: #110F10 !important;
+    color: white;
+    padding: 10px;
+    padding-left: 100px;
+    padding-right: 70px;
+  }
+  
+  .navbar ul li .nav-link {
+    color: white !important;
+    padding-right: 80px;
+    font-size: 20px;
+    position: relative;
+  }
+  
+  
+  .nav-link:hover {
+   
+    border-top: #FFC914 5px solid;
+  }
+  
+  
+  
+  .navbar img {
+    width: 50px;
+    height: 40px;
+    margin: 10px !important;
+    padding: 2px !important;
+  }
+  
+  .navbar-phone {
+    padding: 10px;
+    font-size: 12px;
+    background-color: rgb(30, 30, 31);
+    letter-spacing: 5px;
+    margin: 10px 20px;
+    display: inline;
+  }
+  .small:hover{
+      cursor: pointer;
+      text-decoration: underline;
+  }
+  
+  .navbar .offer {
+    background-color: #FFC914;
+    color: #110F10;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    border-radius: 0;
+  
+  }
+  
+  .navbar .offer:hover {
+    background-color: whitesmoke;
+    color: #110F10;
+    border: #FFC914 solid 2px;
+  }
+  
+  #navbar-faith .small{
+    line-height: 30px;
+  }
+  
+  .sticky{
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+    min-width: 100%;
+    margin-bottom: 50px;
+  
+  }
+  /* main section */
+  
+  .img-main {
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url('../../assets/images/main.png');
+    width: 100%;
+    height: 150vh !important;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .content-main {
+    padding-left: 80px;
+    width: 100%;
+    margin-top: 100px;
+  
+  }
+  
+  .text-main {
+    font-size: 100px;
+    color: #FFC914;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 150px;
+    font-family: 'Concert One', cursive;
+    letter-spacing: 10px;
+  }
+  
+  .para-main {
+    color: white;
+    font-size: 50px;
+  }
+  
+  .para-main p {
+    color: white;
+    font-size: 30px;
+  }
+  
+  .btn-offer {
+    background-color: #FFC914;
+    color: #110F10;
+    text-transform: uppercase;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    border: none !important;
+    min-width: 100%;
+  
+  }
+  
+  .btn-offer:hover {
+    background-color: #110F10;
+    color: white;
+  }
+  
+  /* simple sell */
+  #simple {
+    background-color: whitesmoke;
+  
+  }
+  
+  .simple-header {
+    font-size: 100px;
+    color: #110F10;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 100px;
+    font-family: 'Concert One', cursive;
+    letter-spacing: 5px;
+    margin-top: 60px;
+    /* text-align: center; */
+  
+  }
+  
+  .line {
+    top: 0px;
+    text-align: left;
+    background-color: #FFC914;
+    height: 6PX;
+  
+    max-width: 101px;
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+  
+  .text-num {
+    display: inline-block;
+    border-radius: 50%;
+    padding: 10px 25px;
+    font-size: 30px;
+    font-weight: bolder;
+  color: white;
+  }
+  
+  .simple.text {
+    font-size: 20px;
+    margin-right: 0;
+  
+  }
+  
+  .contact-header {
+    font-weight: bolder;
+      margin-bottom: 10px;
+      font-size: 30px;
+      margin-left: 0!important ;
+      font-family: 'Concert One', cursive;
+  
+  }
+  .rr{
+      border-left: #FFC914 10px solid;
+      background-color: #B5C5C4 !important;
+      margin-left: 20px;
+      margin-left: 40px;
+      justify-content: left  !important;
+      
+  
+  }
+  
+  .rr p{
+      font-size: 20px;
+      line-height: 25px;
+  }
+  
+  /* offer sectio */
+  #offer{
+      padding: 80px 50px;
+      background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../../assets/images/main.png') fixed;
+  }
+  .offer-header{
+      font-weight: 800;
+      font-size: 100px;
+      font-family: 'Concert One', cursive;
+  
+  }
+  .up-line{
+      border-top: #FFC914 8px solid;
+      border-radius: 0 0 8px 8px;
+      margin: 40px;
+  }
+  .up-line .fas{
+      color: #B5C5C4;
+  }
+  .get-offer{
+      background-color: #FFC914;
+      padding: 20px;
+      display: block;
+      color: #110F10;
+      font-size: 20px;
+      font-weight: bolder;
+      border-radius: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+  }
+  .get-offer:hover{
+      background-color: whitesmoke;
+      color: #110F10;
+      border: #FFC914 5px solid;
+  }
+  
+  /* cells */
+  
+  #cell{
+      background-color: rgb(216, 226, 226);
+      margin-top: 0!important;
+  }
+  .cell-header{
+      margin: 0 50px 0 130px; 
+  }
+  .cell-header h1{
+      font-weight: 800;
+      font-size: 120px;
+      font-family: 'Concert One', cursive;
+  }
+  .cell-img{
+      max-width: 100%;
+      height: 100vh;
+      margin-top:0 ;
+  }
+  .quote{
+      color: #B5C5C4 !important;
+  }
+  .star .fas{
+      color: #FFC914;
+  }
+  .cell-content p{
+      font-size: 18px;
+      line-height: 19px;
+      font-weight: 100;
+  }
+  .cell-content{
+      color: #110F10;
+  
+  }
+  .cell-btn{
+      text-decoration: none;
+      border-radius: 0;
+      border: #110F10 1px solid;
+      background: transparent;
+      padding: 16px;
+      margin: 10px 0 10px 0 !important;
+      color: #110F10;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 3px;
+  }
+  
+  /* counts */
+  
+  #counts{
+      background-color: #FFC914;
+      color: whitesmoke !important;
+      margin: 0 !important;
+      padding: 0 !important;
+  }
+  tsapn{
+    padding: 30px !important;
+    color: red  !important;
+  }
+  /* buy section */
+  
+  #buy
+  {
+    background-color: whitesmoke;
+  }
+  .buy-header{
+    color: #110F10;
+    font-weight: 800;
+      font-size: 120px;
+      font-family: 'Concert One', cursive;
+  }
+  .buy-text{
+    color: #110F10;
+    font-weight: 200;
+      font-size: 20px;
+      padding-bottom: 20px;
+  }
+  .buy-content{
+    color: #B5C5C4;
+    font-weight: 200;
+      font-size: 20px;
+      padding-bottom: 20px;
+  }
+  .buy-map{
+    border-bottom: #FFC914 5px solid;
+    height: 80vh;
+    min-width: 100%;
+  }
+  
+  /* footer */
+  
+  footer{
+    background-color: black;
+    padding: 50px;
+  }
+  .footer-img{
+    height: 10vh;
+  
+  }
+  .footer-heading{
+    font-family: 'Concert One', cursive;
+    font-weight: 800;
+    color: white;
+  
+    line-height: 35px;
+  }
+  footer .form-offer .form-control, footer .form-offer .btn{
+  border-radius: 0 !important;
+  }

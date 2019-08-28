@@ -1,0 +1,204 @@
+/*yelllow #FFC914*/
+/* whitesmoke */
+/* black #110F10 */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    font-family: 'Prompt', sans-serif;
+    overflow: hidden;
+  
+  
+  }
+  
+  /* html,body{
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    } */
+  
+  .navbar {
+    background-color: #110F10 !important;
+    color: white;
+    padding: 10px;
+    padding-left: 100px;
+    padding-right: 70px;
+  }
+  
+  .navbar ul li .nav-link {
+    color: white !important;
+    padding-right: 80px;
+    font-size: 20px;
+    position: relative;
+  }
+  
+  
+  .nav-link:hover {
+  
+    border-top: #FFC914 5px solid;
+  }
+  
+  
+  
+  .navbar img {
+    width: 50px;
+    height: 40px;
+    margin: 10px !important;
+    padding: 2px !important;
+  }
+  
+  .navbar-phone {
+    padding: 10px;
+    font-size: 12px;
+    background-color: rgb(30, 30, 31);
+    letter-spacing: 5px;
+    margin: 10px 20px;
+    display: inline;
+  }
+  
+  .small:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .navbar .offer {
+    background-color: #FFC914;
+    color: #110F10;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    border-radius: 0;
+  
+  }
+  
+  .navbar .offer:hover {
+    background-color: whitesmoke;
+    color: #110F10;
+    border: #FFC914 solid 2px;
+  }
+  
+  #navbar-faith .small {
+    line-height: 30px;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+    min-width: 100%;
+    margin-bottom: 50px;
+  
+  }
+
+  /* main section */
+
+  .hr{
+    height: 6px;
+    width: 90px;
+    background-color: #FFC914;
+    display: inline-block;
+    margin-top: 180px;
+  
+  }
+
+  
+.img-testimonials {
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url('../../assets/images/testimonials-main.jpg');
+    width: 100%;
+    height: 120vh !important;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .testimonials-header {
+    margin-top: 120px;
+    font-family: 'Concert One', cursive;
+    letter-spacing: 10px;
+    font-size: 150px;
+  }
+  
+  .img-testimonials p {
+    font-size: 30px;
+    font-weight: bolder;
+  }
+
+  /* reviews */
+#review .col-md-5{
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    margin-top: 40px;
+    padding: 10px 0;
+}
+#review{
+    margin-bottom: 50px;
+}
+  .review-col{
+    display: block;
+    width: 100%;
+  }
+  .review-col .p-review{
+    flex: 1;
+    padding-bottom: 60px;
+    line-height: 28px;
+    height: 40vh;
+  }
+
+  
+/* footer */
+  
+footer{
+    background-color: black;
+    padding: 50px;
+    border-top: #FFC914 solid 8px;
+  }
+  .footer-img{
+    height: 10vh;
+  
+  }
+  .footer-heading{
+    font-family: 'Concert One', cursive;
+    font-weight: 800;
+    color: white;
+  
+    line-height: 35px;
+  }
+  footer .form-offer{
+    margin-top: 0 !important;
+    background-color: black;
+  }
+  footer .form-offer .form-control, footer .form-offer .btn{
+  border-radius: 0 !important;
+  }
+  
+ 
+.btn-offer {
+    background-color: #FFC914;
+    color: #110F10;
+    text-transform: uppercase;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    border: none !important;
+    min-width: 100%;
+  
+  }
+  
+  .btn-offer:hover {
+    background-color: #110F10;
+    color: white;
+  }
+  
+  
+  
+  
