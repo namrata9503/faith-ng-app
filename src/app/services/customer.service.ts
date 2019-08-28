@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { Customer } from '../models/customer';
 
+import { Offer } from '../models/offer';
+
 
 import { ContactCustomer } from '../models/contactsCustomer';
 
@@ -32,6 +34,14 @@ export class CustomerService {
   }
   getAllContact() {
     return this.http.get<ContactCustomer[]>(`http://localhost:8080/api/v1/contacts`);
+    console.log("get all");
+  }
+  offerCustAdd(offer : Offer) {
+    console.log("register service")
+    return this.http.post(`http://localhost:8080/api/v1/offer`, offer);
+  }
+  offersCust() {
+    return this.http.get<Offer[]>(`http://localhost:8080/api/v1/offerCust`);
     console.log("get all");
   }
 }

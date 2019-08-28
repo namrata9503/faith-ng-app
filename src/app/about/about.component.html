@@ -33,7 +33,7 @@
       <div class="align-items-center ">
         <span class="small"><i class="fas fa-map-marker-alt pr-1 text-warning"></i>Located in Goshen,
           Indiana</span><br>
-        <a class="offer btn btn-link d-inline" href="#">
+        <a class="offer btn btn-link d-inline" routerLink="/offer">
           GET My Cash OFFER
         </a>
       </div>
@@ -63,7 +63,7 @@
         </div>
         <div id="" class="form-offer col-md-5 py-3 " data-wow-duration="5s" data-wow-delay="7s">
 
-          <form class="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <form class="" [formGroup]="offerForm" (ngSubmit)="onSubmit()">
 
           <div class="form-group  py-2">
               <input type="text" formControlName="name" class="form-control " id="name" placeholder="NAME"
@@ -98,7 +98,7 @@
               </div>
             </div>
             <div class="py-2">
-              <button class="btn-offer btn btn-link btn-block btn-lg ">Get my cash offer
+              <button class="btn-offer btn btn-link btn-block btn-lg " (click)="newPage()">Get my cash offer
 
               </button>
 
@@ -246,7 +246,7 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="form-offer py-3">
+        <div class="form-offer py-3"  data-wow-duration="5s" data-wow-delay="7s">
           <form>
             <div class="row">
               <div class="col-md-6">
@@ -273,7 +273,7 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                <a class=" btn-offer btn btn-link btn-block btn-lg" href="work#goForm">
+                <a class=" btn-offer btn btn-link btn-block btn-lg" routerLink="/offer">
                   GET My Cash OFFER
                 </a>
 

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { OfferComponent } from './offer/offer.component';
 const routes: Routes = [
   // {
   //   path: '',
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: '',
     component: IndexComponent
+},
+{
+  path: 'offer',
+  component: OfferComponent
 },
   {
       path: 'work',

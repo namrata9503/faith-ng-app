@@ -26,7 +26,7 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  registerForm: FormGroup;
+  offerForm: FormGroup;
   submitted = false;
   loading = false;
   constructor(private formBuilder:FormBuilder,
@@ -107,51 +107,61 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
 
 
-    this.registerForm = this.formBuilder.group({
+    this.offerForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       address: ['', Validators.required],
       city: ['', Validators.required],
-      state: ['', Validators.required],
-      zip: ['', Validators.required],
-      bedrooms: ['', Validators.required],
-      baths: ['', Validators.required],
-      price: ['', Validators.required]
-
+     
 });
 
   }
+ // convenience getter for easy access to form fields
+ get f() { return this.offerForm.controls; }
 
-  // convenience getter for easy access to form fields
-get f() { return this.registerForm.controls; }
-
-onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-        return;
-    }
-
-    // display form values on success
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-
-    this.loading = true;
-    this.custService.register(this.registerForm.value)
-        .pipe(first())
-        .subscribe(
-            data => {
-              // this.alertService.success('Registration successful', true);
-               // this.router.navigate(['/login']);
-               alert("suucess data added");
-            },
-            error => {
-                //this.alertService.error(error);
-                alert("error");
-                this.loading = false;
-            });
-}
+ onSubmit() {
+     this.submitted = true;
+ 
+     // stop here if form is invalid
+     if (this.offerForm.invalid) {
+         return;
+     }
+ 
+     // display form values on success
+     // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+ 
+     this.loading = true;
+     this.custService.offerCustAdd(this.offerForm.value)
+         .pipe(first())
+         .subscribe(
+             data => {
+               // this.alertService.success('Registration successful', true);
+                // this.router.navigate(['/login']);
+                alert("suucess data added");
+             },
+             error => {
+                 //this.alertService.error(error);
+                 alert("error");
+                 this.loading = false;
+             });
+ }
+ 
+ newPage(): void {
+  
+   let name = this.offerForm.get('name').value;
+   let phone = this.offerForm.get('phone').value;
+   let city = this.offerForm.get('city').value;
+ 
+   let address = this.offerForm.get('address').value;
+ 
+ 
+   if (name !== '' && phone !== ''  && city !== '' && address !==''){
+     this.router.navigateByUrl('work'); 
+    }   
+   
+ 
+ }
   ngAfterViewInit() {
     this.elementPosition = this.menuElement.nativeElement.offsetTop;
   }

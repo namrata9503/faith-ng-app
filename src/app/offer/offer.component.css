@@ -1,0 +1,169 @@
+/*yelllow #FFC914*/
+/* whitesmoke */
+/* black #110F10 */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+    font-family: 'Prompt', sans-serif;
+    overflow: hidden;
+  
+  
+  }
+  
+  /* html,body{
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    } */
+  
+  .navbar {
+    background-color: #110F10 !important;
+    color: white;
+    padding: 10px;
+    padding-left: 100px;
+    padding-right: 70px;
+  }
+  
+  .navbar ul li .nav-link {
+    color: white !important;
+    padding-right: 80px;
+    font-size: 20px;
+    position: relative;
+  }
+  
+  
+  .nav-link:hover {
+  
+    border-top: #FFC914 5px solid;
+  }
+  
+  
+  
+  .navbar img {
+    width: 50px;
+    height: 40px;
+    margin: 10px !important;
+    padding: 2px !important;
+  }
+  
+  .navbar-phone {
+    padding: 10px;
+    font-size: 12px;
+    background-color: rgb(30, 30, 31);
+    letter-spacing: 5px;
+    margin: 10px 20px;
+    display: inline;
+  }
+  
+  .small:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .navbar .offer {
+    background-color: #FFC914;
+    color: #110F10;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    border-radius: 0;
+  
+  }
+  
+  .navbar .offer:hover {
+    background-color: whitesmoke;
+    color: #110F10;
+    border: #FFC914 solid 2px;
+  }
+  
+  #navbar-faith .small {
+    line-height: 30px;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+    min-width: 100%;
+    margin-bottom: 50px;
+  
+  }
+
+  
+   /* main form sectio */
+
+   .img-main {
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url('../../assets/images/home4.jpg');
+    width: 100%;
+    height: 120vh !important;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .content-main {
+    padding-left: 80px;
+    width: 100%;
+  }
+  
+  .text-main {
+    font-size: 70px;
+    color: #FFC914;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 80px;
+    font-family: 'Concert One', cursive;
+    letter-spacing: 10px;
+    margin-top: 80px;
+    margin-bottom: 40px !important;
+    padding-bottom: 40px;
+  }
+  .text-main p{
+      font-size: 30px;
+      color: white;
+      font-weight: bolder;
+      line-height: 38px;
+      letter-spacing: -1px;
+      margin: 30px 0;
+      text-transform: capitalize;
+
+  }
+  
+  
+  
+  .btn-offer {
+    background-color: #FFC914;
+    color: #110F10;
+    text-transform: uppercase;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    border: none !important;
+    min-width: 100%;
+  
+  }
+  
+  .btn-offer:hover {
+    background-color: #110F10;
+    color: white;
+  }
+  .form-offer{
+   
+    margin-top: 180px;
+    padding-left: 80px;
+  }
+  .form-offer p, .form-offer h1{
+    color: #110F10 !important;
+  }
+  

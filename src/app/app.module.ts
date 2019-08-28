@@ -22,6 +22,7 @@ import { AboutComponent } from './about/about.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { ContactComponent } from './contact/contact.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { OfferComponent } from './offer/offer.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
     WorkComponent,
     AboutComponent,
     ContactComponent,
-    TestimonialsComponent
+    TestimonialsComponent,
+    OfferComponent
   ],
   imports: [ 
     BrowserModule,

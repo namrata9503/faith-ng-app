@@ -1,12 +1,9 @@
-
 <!--The content below is only a placeholder and can be replaced.-->
 <section id="navbar-faith">
   <div class="container-fluid m-0 ">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " #stickyMenu
-    [class.sticky] = "sticky"
-    >
-      <a class="navbar-brand" routerLink="/"  routerLinkActive="active" >
-      <img src="../assets/images/logo1.png"></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " #stickyMenu [class.sticky]="sticky">
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+        <img src="../assets/images/logo1.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,7 +11,8 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item  active">
-            <a class="nav-link  text-center p-4 mx-auto" routerLink="/work">How it works <span class="sr-only">(current)</span></a>
+            <a class="nav-link  text-center p-4 mx-auto" routerLink="/work">How it works <span
+                class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link  text-center p-4 mx-auto" routerLink="/about">About</a>
@@ -25,7 +23,7 @@
           <li class="nav-item ">
             <a class="nav-link  text-center p-4 mx-auto " routerLink="/contact">Contact</a>
           </li>
-          
+
         </ul>
 
       </div>
@@ -36,7 +34,7 @@
       <div class="align-items-center ">
         <span class="small"><i class="fas fa-map-marker-alt pr-1 text-warning"></i>Located in Goshen,
           Indiana</span><br>
-        <a class="offer btn btn-link d-inline" href="#">
+        <a class="offer btn btn-link d-inline" routerLink="/offer">
           GET My Cash OFFER
         </a>
       </div>
@@ -55,29 +53,32 @@
     <div class="row">
       <div class="img-main img-fluid">
         <div class="content-main">
-                    <div class="text-main col-12 wow bounceInDown" data-wow-duration="3s">
+          <div class="text-main col-12 wow bounceInDown" data-wow-duration="3s">
             faith with house
           </div>
 
-          <div class="col-12 para-main wow bounceInDown "data-wow-duration="2s" data-wow-delay="3s">
+          <div class="col-12 para-main wow bounceInDown " data-wow-duration="2s" data-wow-delay="3s">
             To the Area’s Most Trusted Cash Buyer
             <p class="col-12 wow bounceInDown" data-wow-duration="2s" data-wow-delay="5s">
               Any house, any condition, any price range.
             </p>
           </div>
           <div class="form-offer col-md-6 py-3 " data-wow-duration="5s" data-wow-delay="7s">
-            <h1 class="text-white font-weight-bold pt-5 text-uppercase pb-3 display-4 wow fadeInUp" data-wow-duration="5s" data-wow-delay="8s" >GET AN OFFER TODAY</h1>
+            <h1 class="text-white font-weight-bold pt-5 text-uppercase pb-3 display-4 wow fadeInUp"
+              data-wow-duration="5s" data-wow-delay="8s">GET AN OFFER TODAY</h1>
             <form>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group mx-1 ">
-                    <input type="text" class="form-control wow bounceInDown" id="name" placeholder="NAME"  data-wow-duration="2s" data-wow-delay="11s">
+                    <input type="text" class="form-control wow bounceInDown" id="name" placeholder="NAME"
+                      data-wow-duration="2s" data-wow-delay="11s">
 
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group mx-1">
-                    <input type="tel" class="form-control wow bounceInDown" id="name" placeholder="PHONE"  data-wow-duration="2s" data-wow-delay="13s">
+                    <input type="tel" class="form-control wow bounceInDown" id="name" placeholder="PHONE"
+                      data-wow-duration="2s" data-wow-delay="13s">
 
                   </div>
                 </div>
@@ -85,7 +86,8 @@
               <div class="row">
                 <div class="col-md-12 my-3">
                   <div class="form-group mx-1">
-                    <input type="tel" class="form-control wow bounceInDown" id="name" placeholder="(Street,City,State,ZIP)"  data-wow-duration="2s" data-wow-delay="15s">
+                    <input type="tel" class="form-control wow bounceInDown" id="name"
+                      placeholder="(Street,City,State,ZIP)" data-wow-duration="2s" data-wow-delay="15s">
 
                   </div>
 
@@ -93,7 +95,8 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <a class=" btn-offer btn btn-link btn-block btn-lg wow bounceInDown" href="#"  data-wow-duration="2s" data-wow-delay="16s">
+                  <a class=" btn-offer btn btn-link btn-block btn-lg wow bounceInDown" href="#" data-wow-duration="2s"
+                    data-wow-delay="16s">
                     GET My Cash OFFER
                   </a>
 
@@ -117,16 +120,16 @@
 <section id="simple ">
   <div class="container-fluid   my-4">
     <div class="row mx-5 ">
-      <div class="col-md-6 simple-header" data-aos="fade-up-left"  data-aos-easing="linear"
-      data-aos-duration="2000" data-aos-once="false">
+      <div class="col-md-6 simple-header" data-aos="fade-up-left" data-aos-easing="linear" data-aos-duration="2000"
+        data-aos-once="false">
         <p class="line"></p>
         we make selling simple
       </div>
       <div class="col-md-6 simple-text">
-        <div class="row my-4 rr p-4 "data-aos="fade-right"  data-aos-easing="linear"
-        data-aos-duration="2000" data-aos-once="false" data-aos-offset="100">
+        <div class="row my-4 rr p-4 " data-aos="fade-right" data-aos-easing="linear" data-aos-duration="2000"
+          data-aos-once="false" data-aos-offset="100">
           <div class="col-md-3">
-            <h1 class="bg-warning text-num " >1</h1>
+            <h1 class="bg-warning text-num ">1</h1>
           </div>
           <div class="col-md-9 ">
             <h3 class="text-capitalize contact-header">contact us</h3>
@@ -135,8 +138,8 @@
               worth.</p>
           </div>
         </div>
-        <div class="row my-4 rr p-4"data-aos="fade-right"  data-aos-easing="linear"
-        data-aos-duration="2000" data-aos-once="false" data-aos-offset="200">
+        <div class="row my-4 rr p-4" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="2000"
+          data-aos-once="false" data-aos-offset="200">
           <div class="col-md-3">
             <h1 class="bg-warning text-num">2</h1>
           </div>
@@ -147,8 +150,8 @@
               worth.</p>
           </div>
         </div>
-        <div class="row my-4 rr p-4 "data-aos="fade-right"  data-aos-easing="linear"
-        data-aos-duration="2000" data-aos-once="false"      data-aos-offset="300">
+        <div class="row my-4 rr p-4 " data-aos="fade-right" data-aos-easing="linear" data-aos-duration="2000"
+          data-aos-once="false" data-aos-offset="300">
           <div class="col-md-3">
             <h1 class="bg-warning text-num">3</h1>
           </div>
@@ -159,8 +162,8 @@
               worth.</p>
           </div>
         </div>
-        <div class="row my-4 rr p-4"data-aos="fade-right"  data-aos-easing="linear"
-        data-aos-duration="2000" data-aos-once="false" data-aos-offset="300" >
+        <div class="row my-4 rr p-4" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="2000"
+          data-aos-once="false" data-aos-offset="300">
           <div class="col-md-3">
             <h1 class="bg-warning text-num">4</h1>
           </div>
@@ -186,15 +189,15 @@
     <div class="img-offer">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="mx-auto display-4 text-center text-white offer-header" 
-          data-aos="zoom-in"data-aos-duration="2000">GET MORE THAN AN OFFER.<br>
+          <h1 class="mx-auto display-4 text-center text-white offer-header" data-aos="zoom-in" data-aos-duration="2000">
+            GET MORE THAN AN OFFER.<br>
             GET GOOD FAITH.</h1>
         </div>
       </div>
       <div class="row mx-5 justify-content-center mt-4">
         <div class="col-md-6">
-          <div class="row p-3 bg-light mx-3 up-line" data-aos="zoom-in-right"data-aos-duration="3000"
-          data-aos-easing="linear" >
+          <div class="row p-3 bg-light mx-3 up-line" data-aos="zoom-in-right" data-aos-duration="3000"
+            data-aos-easing="linear">
 
 
             <div class="col-md-2">
@@ -208,8 +211,8 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="row p-3 bg-light mx-3 up-line " data-aos="zoom-in-left"data-aos-duration="3000"
-          data-aos-easing="linear" >
+          <div class="row p-3 bg-light mx-3 up-line " data-aos="zoom-in-left" data-aos-duration="3000"
+            data-aos-easing="linear">
 
 
             <div class="col-md-2">
@@ -227,8 +230,8 @@
       </div>
       <div class="row mx-5 justify-content-center">
         <div class="col-md-6 ">
-          <div class="row p-3 bg-light mx-3 up-line"  data-aos="zoom-in-right"data-aos-duration="3000"
-          data-aos-easing="linear" >
+          <div class="row p-3 bg-light mx-3 up-line" data-aos="zoom-in-right" data-aos-duration="3000"
+            data-aos-easing="linear">
 
 
             <div class="col-md-2">
@@ -242,8 +245,8 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="row p-3 bg-light mx-3 up-line"  data-aos="zoom-in-left"data-aos-duration="3000"
-          data-aos-easing="linear" >
+          <div class="row p-3 bg-light mx-3 up-line" data-aos="zoom-in-left" data-aos-duration="3000"
+            data-aos-easing="linear">
 
 
             <div class="col-md-2">
@@ -259,12 +262,10 @@
 
       </div>
 
-      <div class="row justify-content-center " >
+      <div class="row justify-content-center ">
 
-        <a class="get-offer btn btn-link"
-        data-aos="zoom-out-down"
-      data-aos-easing="inear"
-      data-aos-duration="2000" href="#">
+        <a class="get-offer btn btn-link" data-aos="zoom-out-down" data-aos-easing="inear" data-aos-duration="2000"
+          href="#">
           GET My Cash OFFER
         </a>
 
@@ -279,22 +280,20 @@
   <div class="container-fluid">
     <div class="row pt-5">
       <div class="col-md-6">
-        <div class="cell-header" >
+        <div class="cell-header">
           <p class="text-warning font-weight-bold">CUSTOMER TESTIMONIALS </p>
-          <h1  data-aos="zoom-in"data-aos-duration="2000">
+          <h1 data-aos="zoom-in" data-aos-duration="2000">
             WHAT
             SELLERS
             ARE
             SAYING</h1>
         </div>
-        <img src="../assets/images/cell.png " class="img-fluid cell-img" alt="home"  data-aos="zoom-in"
-        data-aos-easing="linear"
-        data-aos-duration="1500">
+        <img src="../assets/images/cell.png " class="img-fluid cell-img" alt="home" data-aos="zoom-in"
+          data-aos-easing="linear" data-aos-duration="1500">
       </div>
       <div class="col-md-6 cell-content">
-        <div class="row bg-light p-3 py-5 mr-3 mb-4"  data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1000">
+        <div class="row bg-light p-3 py-5 mr-3 mb-4" data-aos="fade-down" data-aos-easing="linear"
+          data-aos-duration="1000">
 
 
           <div class="col-md-2 quote text-right pr-3">
@@ -312,9 +311,8 @@
                 class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h4>
           </div>
         </div>
-        <div class="row bg-light p-3 py-5 mr-3 mb-4"  data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1500">
+        <div class="row bg-light p-3 py-5 mr-3 mb-4" data-aos="fade-down" data-aos-easing="linear"
+          data-aos-duration="1500">
 
 
           <div class="col-md-2 quote text-right pr-3">
@@ -332,9 +330,8 @@
                 class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h4>
           </div>
         </div>
-        <div class="row bg-light p-3 py-5 mr-3 mb-4"  data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1500">
+        <div class="row bg-light p-3 py-5 mr-3 mb-4" data-aos="fade-down" data-aos-easing="linear"
+          data-aos-duration="1500">
 
 
           <div class="col-md-2 quote text-right pr-3">
@@ -354,10 +351,8 @@
         </div>
         <div class="row justify-content-start">
 
-          <a class="cell-btn btn btn-link text-uppercase text-left mx-0"
-          data-aos="zoom-out"
-        data-aos-easing="linear"
-        data-aos-duration="1500" href="#">
+          <a class="cell-btn btn btn-link text-uppercase text-left mx-0" data-aos="zoom-out" data-aos-easing="linear"
+            data-aos-duration="1500" href="#">
             view all Testimonials
           </a>
 
@@ -379,27 +374,24 @@
         <!-- <h1 class="text-white"><span class='num' data-min='1' data-max='2000' data-delay='5' data-increment='1'>2000</span> -->
         <!-- </h1> -->
         <circle-progress [percent]="35" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-          [outerStrokeColor]="'#110F10'" [innerStrokeColor]="'whitesmoke'" [animation]="true" 
-          [animationDuration]="5000"[responsive]="false" [showTitle]="true" [showSubtitle]="true" 
-           [subtitle]="'Years of
+          [outerStrokeColor]="'#110F10'" [innerStrokeColor]="'whitesmoke'" [animation]="true" [animationDuration]="5000"
+          [responsive]="false" [showTitle]="true" [showSubtitle]="true" [subtitle]="'Years of
           Experience'" [subtitleColor]="'black'" [subtitleFontSize]="'15'" [units]="''">
         </circle-progress>
       </div>
       <div class="col-md-4">
         <circle-progress [percent]="4500" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
-        [outerStrokeColor]="'#110F10'" [innerStrokeColor]="'whitesmoke'" 
-        [animation]="true" [animationDuration]="7000"[responsive]="false" 
-        [showTitle]="true" [showSubtitle]="true"  [subtitle]="'Homes
+          [outerStrokeColor]="'#110F10'" [innerStrokeColor]="'whitesmoke'" [animation]="true" [animationDuration]="7000"
+          [responsive]="false" [showTitle]="true" [showSubtitle]="true" [subtitle]="'Homes
         Purchased'" [subtitleColor]="'black'" [subtitleFontSize]="'15'" [units]="''">
-      </circle-progress>
+        </circle-progress>
       </div>
       <div class="col-md-4">
-        <circle-progress [percent]="5" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" 
-        [outerStrokeColor]="'#110F10'" [innerStrokeColor]="'whitesmoke'" 
-        [animation]="true" [animateSubtitle]="''" [animationDuration]="5000"
-        [responsive]="false" [showTitle]="true" [showSubtitle]="true"  [subtitle]="'Days to
+        <circle-progress [percent]="5" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
+          [outerStrokeColor]="'#110F10'" [innerStrokeColor]="'whitesmoke'" [animation]="true" [animateSubtitle]="''"
+          [animationDuration]="5000" [responsive]="false" [showTitle]="true" [showSubtitle]="true" [subtitle]="'Days to
         Closing'" [subtitleColor]="'black'" [subtitleFontSize]="'15'" [units]="''">
-      </circle-progress>
+        </circle-progress>
       </div>
     </div>
   </div>
@@ -413,24 +405,20 @@
     <div class="row">
       <div class="col-md-12">
         <div class=" text-center text-uppercase mx-auto my-2 p-5">
-          <h1 class="buy-header" data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="2500">WHERE WE BUY</h1>
-          <p class="buy-text"   data-aos="zoom-in"
-          data-aos-easing="linear"
-          data-aos-duration="2500">Good Faith Manageent buys houses in St. Joseph and Elkhart Counties, including <br> Goshen, Elkhart, Mishawaka and South Bend.</p>
-          <p class="buy-content" data-aos="zoom-out"
-          data-aos-easing="linear"
-          data-aos-duration="2500">See where we’ve purchased already: </p>
+          <h1 class="buy-header" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="2500">WHERE WE BUY
+          </h1>
+          <p class="buy-text" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="2500">Good Faith Manageent
+            buys houses in St. Joseph and Elkhart Counties, including <br> Goshen, Elkhart, Mishawaka and South Bend.
+          </p>
+          <p class="buy-content" data-aos="zoom-out" data-aos-easing="linear" data-aos-duration="2500">See where we’ve
+            purchased already: </p>
         </div>
-        
+
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div #map  class="buy-map" data-aos="zoom-in"
-        data-aos-easing="linear"
-        data-aos-duration="2500"></div>
+        <div #map class="buy-map" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="2500"></div>
 
       </div>
     </div>
@@ -441,73 +429,81 @@
 
 <!-- footer -->
 <footer>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="row " data-aos="zoom-in"
-      data-aos-easing="linear"
-      data-aos-duration="2500">
-        <div class="col-md-4 text-right">
-          <img src="../assets/images/logo1.png" class="footer-img" alt="logo">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row " data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="2500">
+          <div class="col-md-4 text-right">
+            <img src="../assets/images/logo1.png" class="footer-img" alt="logo">
+          </div>
+          <div class="col-md-8 text-left pl-2 footer-heading">
+            <h1 class="text-capitalize footer-heading">good faith</h1>
+            <p class="">management</p>
+          </div>
         </div>
-        <div class="col-md-8 text-left pl-2 footer-heading">
-          <h1 class="text-capitalize footer-heading">good faith</h1>
-          <p class="">management</p>
+      </div>
+      <div class="col-md-6">
+        <div id="" class="form-offer  py-3 wow bounceInUp" data-wow-duration="5s" data-wow-delay="1s">
+
+          <form class="" [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+            <div class="row justify-content-between">
+              <div class="col-md-6 ">
+                <div class="form-group  py-2">
+                  <input type="text" formControlName="name" class="form-control " id="name" placeholder="NAME"
+                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required" class="text-danger"> Name is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group  py-2">
+                  <input type="tel" formControlName="phone" class="form-control " id="phone" placeholder="PHONE"
+                    [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+                  <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                    <div *ngIf="f.phone.errors.required" class="text-danger"> phone is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="form-groupm mt-2 mb-3">
+                <input type="text" formControlName="address" class="form-control " id="address"
+                  [ngClass]="{ 'is-invalid': submitted && f.address.errors }" placeholder="address">
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                  <div *ngIf="f.address.errors.required" class="text-danger"> address is required</div>
+                </div>
+              </div>
+              <div class="form-group mb-2">
+                <input type="text" formControlName="city" class="form-control " id="city"
+                  [ngClass]="{ 'is-invalid': submitted && f.city.errors }" placeholder="City">
+                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                  <div *ngIf="f.city.errors.required" class="text-danger"> city is required</div>
+                </div>
+              </div>
+            
+            <div class="py-2">
+              <button class="btn-offer btn btn-link btn-block btn-lg " (click)="newPage()">
+                Get my cash offer
+
+              </button>
+
+              <!-- <a class=" btn-offer btn btn-link btn-block btn-lg wow bounceInDown " href="#"
+                   data-wow-duration="2s"
+                    data-wow-delay="16s">
+                    
+                  </a> -->
+            </div>
+
+          </form>
+
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="form-offer py-3">
-        <form>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group mx-1">
-                <input type="text"
-                data-aos="fade-right"
-          data-aos-easing="linear"
-          data-aos-duration="2500" data-aos-offset="500"class="form-control" id="name" placeholder="NAME">
 
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group mx-1">
-                <input type="tel"data-aos="fade-left"
-                data-aos-easing="linear"
-                data-aos-duration="2500" data-aos-offset="500" class="form-control" id="name" placeholder="PHONE">
-
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 my-3">
-              <div class="form-group mx-1">
-                <input type="tel" class="form-control" data-aos="fade-up"
-                data-aos-easing="linear"
-                data-aos-duration="2500" data-aos-offset="100" id="name" placeholder="(Street,City,State,ZIP)">
-
-              </div>
-
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <a class=" btn-offer btn btn-link btn-block btn-lg"data-aos="flip-down"data-aos-offset="100"
-              data-aos-easing="linear"
-              data-aos-duration="2500"  href="#">
-                GET My Cash OFFER
-              </a>
-
-            </div>
-          </div>
-        </form>
-      
-      </div>
-    </div>
+    <hr class="text-white mt-5 bg-secondary">
+    <p class="small text-right text-white pt-5 mb-5">Copyright 2018 © All rights Reserved. Design by
+      namrata sid korgaonkar</p>
   </div>
-
-  <hr class="text-white mt-5 bg-secondary">
-  <p class="small text-right text-white pt-5 mb-5">Copyright 2018 © All rights Reserved. Design by 
-    namrata sid korgaonkar</p></div>
 </footer>
 <!-- footer ends -->
 <router-outlet></router-outlet>
