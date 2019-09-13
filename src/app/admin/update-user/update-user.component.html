@@ -1,0 +1,47 @@
+<h3 class="heading">
+  Update User Form
+</h3>
+<mat-dialog-actions>
+  <button mat-raised-button class="btn-dialog-close bg-warning text-white" mat-dialog-close>
+    <i class="material-icons">
+      close
+      </i>
+  </button>
+</mat-dialog-actions>
+<form [formGroup]="userService.updateForm" class="normal-form" (ngSubmit)="edit()">
+
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+            <input class="hide" formControlName="id"  matInput>
+
+          <input  formControlName="username"   matInput placeholder="Name">
+          <!-- <mat-error>This field is mandatory.</mat-error> -->
+        </mat-form-field>
+        <mat-form-field>
+          <input  formControlName="email" matInput placeholder="Email">
+          <!-- <mat-error>Invalid email address.</mat-error> -->
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="contact"  matInput placeholder="Contact Number">
+          <!-- <mat-error *ngIf="updateForm.controls['contact'].errors?.required">This field is mandatory.</mat-error> -->
+          <!-- <mat-error *ngIf="updateForm.controls['contact'].errors?.minlength">Minimum 8 charactors needed.</mat-error> -->
+        </mat-form-field>
+        <mat-form-field>
+          <input  formControlName="city"  matInput placeholder="City">
+        </mat-form-field>
+     
+         
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+      
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" >Edit</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

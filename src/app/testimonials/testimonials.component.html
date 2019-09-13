@@ -22,6 +22,14 @@
           <li class="nav-item ">
             <a class="nav-link  text-center p-4 mx-auto " routerLink="/contact">Contact</a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link  text-center p-4 mx-auto " routerLink="/admin" *ngIf="isAdmin">
+             Admin Dashboard</a>
+         </li>
+          
+          <li class="nav-item">
+            <a class="nav-link  text-center p-4 mx-auto" (click)="logout()">logout</a>
+          </li>
          
         </ul>
 
@@ -413,42 +421,60 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class=" py-3">
-            <form>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group mx-1">
-                    <input type="text" class="form-control" id="name" placeholder="NAME">
-  
+            <div id="" class="form-offer  py-3 wow bounceInUp" data-wow-duration="5s" data-wow-delay="1s">
+
+                <form class="" [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+                  <div class="row justify-content-between">
+                    <div class="col-md-6 ">
+                      <div class="form-group  py-2">
+                        <input type="text" formControlName="name" class="form-control " id="name" placeholder="NAME"
+                          [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                          <div *ngIf="f.name.errors.required" class="text-danger"> Name is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group  py-2">
+                        <input type="tel" formControlName="phone" class="form-control " id="phone" placeholder="PHONE"
+                          [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+                        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                          <div *ngIf="f.phone.errors.required" class="text-danger"> phone is required</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group mx-1">
-                    <input type="tel" class="form-control" id="name" placeholder="PHONE">
-  
+                    <div class="form-groupm mt-2 mb-3">
+                      <input type="text" formControlName="address" class="form-control " id="address"
+                        [ngClass]="{ 'is-invalid': submitted && f.address.errors }" placeholder="address">
+                      <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                        <div *ngIf="f.address.errors.required" class="text-danger"> address is required</div>
+                      </div>
+                    </div>
+                    <div class="form-group mb-2">
+                      <input type="text" formControlName="city" class="form-control " id="city"
+                        [ngClass]="{ 'is-invalid': submitted && f.city.errors }" placeholder="City">
+                      <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                        <div *ngIf="f.city.errors.required" class="text-danger"> city is required</div>
+                      </div>
+                    </div>
+                  
+                  <div class="py-2">
+                    <button class="btn-offer btn btn-link btn-block btn-lg " (click)="newPage()">
+                      Get my cash offer
+      
+                    </button>
+      
+                    <!-- <a class=" btn-offer btn btn-link btn-block btn-lg wow bounceInDown " href="#"
+                         data-wow-duration="2s"
+                          data-wow-delay="16s">
+                          
+                        </a> -->
                   </div>
-                </div>
+      
+                </form>
+      
               </div>
-              <div class="row">
-                <div class="col-md-12 my-3">
-                  <div class="form-group mx-1">
-                    <input type="tel" class="form-control" id="name" placeholder="(Street,City,State,ZIP)">
-  
-                  </div>
-  
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <a class=" btn-offer btn btn-link btn-block btn-lg" href="">
-                    GET My Cash OFFER
-                  </a>
-  
-                </div>
-              </div>
-            </form>
-  
-          </div>
         </div>
       </div>
   

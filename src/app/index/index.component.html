@@ -1,8 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <section id="navbar-faith">
   <div class="container-fluid m-0 ">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " #stickyMenu [class.sticky]="sticky">
-      <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top " *ngIf="currentUser"
+    #stickyMenu [class.sticky]="sticky">
+      <a class="navbar-brand" >
         <img src="../assets/images/logo1.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +24,15 @@
           <li class="nav-item ">
             <a class="nav-link  text-center p-4 mx-auto " routerLink="/contact">Contact</a>
           </li>
+
+            <li class="nav-item ">
+               <a class="nav-link  text-center p-4 mx-auto " routerLink="/admin" *ngIf="isAdmin">
+                Admin Dashboard</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link  text-center p-4 mx-auto" (click)="logout()">logout</a>
+              </li>
 
         </ul>
 
@@ -443,6 +453,7 @@
         </div>
       </div>
       <div class="col-md-6">
+        
         <div id="" class="form-offer  py-3 wow bounceInUp" data-wow-duration="5s" data-wow-delay="1s">
 
           <form class="" [formGroup]="offerForm" (ngSubmit)="onSubmit()">

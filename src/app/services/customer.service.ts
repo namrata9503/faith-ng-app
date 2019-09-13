@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Customer } from '../models/customer';
 
 import { Offer } from '../models/offer';
+import { User } from '../models/user';
 
 
 import { ContactCustomer } from '../models/contactsCustomer';
@@ -19,12 +20,13 @@ export class CustomerService {
   {
 
    }
+   
    register(cust : Customer) {
     console.log("register service")
     return this.http.post(`http://localhost:8080/api/v1/customer`, cust);
   }
   getAll() {
-    return this.http.get<Customer[]>(`http://localhost:8080/api/v1/customers`);
+    return this.http.get<Customer[]>(`http://localhost:8080/customers`);
     console.log("get all");
   }
 

@@ -18,7 +18,10 @@ import { NavigationEnd } from '@angular/router';
 import * as AOS from 'aos';
 
 import { DOCUMENT } from '@angular/common';
-
+import { AuthenticationService } from '../services/authentication.service';
+import { User } from '../models/user';
+import { Role } from '../models/role';
+import { UserService } from '../services/user.service';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 @Component({
   selector: 'app-about',
@@ -26,13 +29,21 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  currentUser: User;
+  users: User[] = [];
+
   offerForm: FormGroup;
   submitted = false;
   loading = false;
   constructor(private formBuilder:FormBuilder,
     private router: Router,
-    private custService: CustomerService) { }
-  @ViewChild('stickyMenu') menuElement: ElementRef;
+    private custService: CustomerService,    
+    private authenticationService: AuthenticationService
+    ) {
+      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+
+     }
+  @ViewChild('stickyMenu',{static:false}) menuElement: ElementRef;
   sticky: boolean = false;
   elementPosition: any;
 
@@ -116,6 +127,15 @@ export class AboutComponent implements OnInit {
      
 });
 
+  }
+
+  get isAdmin() {
+    return this.currentUser && this.currentUser.role === Role.Admin;
+  }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
  // convenience getter for easy access to form fields
  get f() { return this.offerForm.controls; }

@@ -1,29 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClientModule , HttpClient } from '@angular/common/http'; 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 // import custom validator to validate that password and confirm password fields match
 // import { MustMatch } from './_helpers/must-match.validator';
 
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { AuthenticationService } from '../services/authentication.service';
+import { User } from '../models/user';
+import { Role } from '../models/role';
+import { CustomerService } from '../services/customer.service';
 
-import {  CustomerService } from '../services/customer.service';
-
-import {  ViewChild, OnDestroy , HostListener, Inject , ElementRef } from '@angular/core';
+import { ViewChild, OnDestroy, HostListener, Inject, ElementRef } from '@angular/core';
 import { map, filter, scan } from 'rxjs/operators';
-
-
-
-import {} from 'googlemaps';
+import { } from 'googlemaps';
 import { NgwWowService } from 'ngx-wow';
-import { Subscription }   from 'rxjs';
-import {  NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { NavigationEnd } from '@angular/router';
 import * as AOS from 'aos';
 
 import { DOCUMENT } from '@angular/common';
 
-import { trigger, state, transition, style, animate } from '@angular/animations'; 
+import { trigger, state, transition, style, animate } from '@angular/animations';
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
@@ -31,13 +30,22 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 })
 export class WorkComponent implements OnInit {
   registerForm: FormGroup;
+  offerForm: FormGroup;
+
+  currentUser: User;
+  users: User[] = [];
+
   submitted = false;
   loading = false;
 
-  constructor(private formBuilder:FormBuilder,
-        private router: Router,
-        private custService: CustomerService) { }
-        @ViewChild('stickyMenu') menuElement: ElementRef;
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    private custService: CustomerService,
+    private authenticationService: AuthenticationService
+    ) { 
+            this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
+  @ViewChild('stickyMenu',{static:false}) menuElement: ElementRef;
   sticky: boolean = false;
   elementPosition: any;
 
@@ -53,23 +61,34 @@ export class WorkComponent implements OnInit {
       bedrooms: ['', Validators.required],
       baths: ['', Validators.required],
       price: ['', Validators.required]
+    });
+    this.offerForm = this.formBuilder.group({
+      phone: ['', Validators.required],
 
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required]
 
-
-
-
-
-  });
+    });
   }
-// convenience getter for easy access to form fields
-get f() { return this.registerForm.controls; }
 
-onSubmit() {
+  get isAdmin() {
+    return this.currentUser && this.currentUser.role === Role.Admin;
+  }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+  }
+  // convenience getter for easy access to form fields
+  get f() { return this.registerForm.controls; }
+
+  onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-        return;
+      return;
     }
 
     // display form values on success
@@ -77,6 +96,36 @@ onSubmit() {
 
     this.loading = true;
     this.custService.register(this.registerForm.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          // this.alertService.success('Registration successful', true);
+          // this.router.navigate(['/login']);
+          alert("suucess data added");
+        },
+        error => {
+          //this.alertService.error(error);
+          alert("error");
+          this.loading = false;
+        });
+  }
+
+     // convenience getter for easy access to form fields
+get o() { return this.offerForm.controls; }
+
+onOffer() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.offerForm.invalid) {
+        return;
+    }
+
+    // display form values on success
+    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+
+    this.loading = true;
+    this.custService.offerCustAdd(this.offerForm.value)
         .pipe(first())
         .subscribe(
             data => {
@@ -90,13 +139,28 @@ onSubmit() {
                 this.loading = false;
             });
 }
-ngAfterViewInit(){
+  newPage() {
+
+    let name = this.offerForm.get('name').value;
+    let phone = this.offerForm.get('phone').value;
+    let city = this.offerForm.get('city').value;
+
+    let address = this.offerForm.get('address').value;
+
+
+    if (name !== '' && phone !== '' && city !== '' && address !== '') {
+      this.router.navigateByUrl('work');
+    }
+
+
+  }
+  ngAfterViewInit() {
     this.elementPosition = this.menuElement.nativeElement.offsetTop;
   }
-@HostListener('window:scroll', ['$event'])
-  handleScroll(){
+  @HostListener('window:scroll', ['$event'])
+  handleScroll() {
     const windowScroll = window.pageYOffset;
-    if(windowScroll >= this.elementPosition){
+    if (windowScroll >= this.elementPosition) {
       this.sticky = true;
     } else {
       this.sticky = false;

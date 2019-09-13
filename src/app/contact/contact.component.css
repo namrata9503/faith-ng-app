@@ -214,10 +214,9 @@ padding: 30px;
   font-size: 30px;
   font-weight: bolder;
 }
-
-/* footer */
+ /* footer */
   
-footer{
+ footer{
   background-color: black;
   padding: 50px;
 }
@@ -232,17 +231,6 @@ footer{
 
   line-height: 35px;
 }
-footer .form-offer{
-  margin-top: 0 !important;
-  background-color: black;
-}
-footer .form-offer .form-control, footer .form-offer .btn{
+footer .form-offe .form-control, footer .form-offe .btn{
 border-radius: 0 !important;
 }
-
-/* .slide-img {
-  width: 100%;
-  height: 100%;
-} */
-
-

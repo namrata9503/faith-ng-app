@@ -1,6 +1,11 @@
 import { Component, ViewChild, OnInit, OnDestroy, HostListener, Inject, ElementRef } from '@angular/core';
 import { map, filter, scan } from 'rxjs/operators';
 
+import { AuthenticationService } from '../services/authentication.service';
+import { User } from '../models/user';
+import { Role } from '../models/role';
+import { UserService } from '../services/user.service';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -34,7 +39,10 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
     )]
 })
 export class IndexComponent implements OnInit {
+  currentUser: User;
+  users: User[] = [];
 
+  
   offerForm: FormGroup;
   submitted = false;
   loading = false;
@@ -42,7 +50,9 @@ export class IndexComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) document, private router: Router, private wowService: NgwWowService,
     private formBuilder: FormBuilder,
-    private custService: CustomerService
+    private custService: CustomerService,
+    private authenticationService: AuthenticationService,
+    private userService: UserService
   ) {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(event => {
       // Reload WoW animations when done navigating to page,
@@ -51,17 +61,20 @@ export class IndexComponent implements OnInit {
       AOS.init();
 
     });
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
 
 
 
   }
 
-  @ViewChild('stickyMenu') menuElement: ElementRef;
+  @ViewChild('stickyMenu',{static:true}) menuElement: ElementRef;
   sticky: boolean = false;
   elementPosition: any;
-  @ViewChild('map') mapElement: any;
+  @ViewChild('map',{static:false}) mapElement: any;
   map: google.maps.Map;
   ngOnInit(): void {
+
+
 
     this.offerForm = this.formBuilder.group({
       phone: ['', Validators.required],
@@ -72,6 +85,11 @@ export class IndexComponent implements OnInit {
 
     });
 
+
+    // this.userService.getAllUsers().pipe(first()).subscribe(users => {
+    //   this.users = users;
+    //   console.log("login users: ", users)
+    // });
     const mapProperties = {
       center: new google.maps.LatLng(41.658034, -86.170055),
       zoom: 15,
@@ -84,16 +102,23 @@ export class IndexComponent implements OnInit {
         // do whatever you want with revealed element
       });
   }
+  get isAdmin() {
+    return this.currentUser && this.currentUser.role === Role.Admin;
+  }
 
-    // convenience getter for easy access to form fields
-get f() { return this.offerForm.controls; }
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+  }
+  // convenience getter for easy access to form fields
+  get f() { return this.offerForm.controls; }
 
-onSubmit() {
+  onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
     if (this.offerForm.invalid) {
-        return;
+      return;
     }
 
     // display form values on success
@@ -101,19 +126,19 @@ onSubmit() {
 
     this.loading = true;
     this.custService.offerCustAdd(this.offerForm.value)
-        .pipe(first())
-        .subscribe(
-            data => {
-              // this.alertService.success('Registration successful', true);
-               // this.router.navigate(['/login']);
-               alert("suucess data added");
-            },
-            error => {
-                //this.alertService.error(error);
-                alert("error");
-                this.loading = false;
-            });
-}
+      .pipe(first())
+      .subscribe(
+        data => {
+          // this.alertService.success('Registration successful', true);
+          // this.router.navigate(['/login']);
+          alert("suucess data added");
+        },
+        error => {
+          //this.alertService.error(error);
+          alert("error");
+          this.loading = false;
+        });
+  }
   newPage() {
 
     let name = this.offerForm.get('name').value;
@@ -127,12 +152,14 @@ onSubmit() {
       this.router.navigateByUrl('work');
     }
 
-
   }
 
   ngOnDestroy() {
     // unsubscribe (if necessary) to WOW observable to prevent memory leaks
-    this.wowSubscription.unsubscribe();
+    if(this.wowSubscription) { this.wowSubscription.unsubscribe(); }
+
+
+    //this.wowSubscription.unsubscribe();
   }
   ngAfterViewInit() {
     this.elementPosition = this.menuElement.nativeElement.offsetTop;

@@ -199,6 +199,27 @@ footer{
     color: white;
   }
   
+  /* footer */
+  
+  footer{
+    background-color: black;
+    padding: 50px;
+  }
+  .footer-img{
+    height: 10vh;
+  
+  }
+  .footer-heading{
+    font-family: 'Concert One', cursive;
+    font-weight: 800;
+    color: white;
+  
+    line-height: 35px;
+  }
+  footer .form-offer .form-control, footer .form-offer .btn{
+  border-radius: 0 !important;
+  }
+  
   
   
   
