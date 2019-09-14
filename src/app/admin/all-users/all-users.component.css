@@ -1,3 +1,65 @@
+
+   /* main section */
+  
+   .img-main {
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url('../../../assets/images/wall.jpg');
+    width: 100%;
+    background-origin:  top left;
+    height: 185vh !important;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .content-main {
+    padding-left: 80px;
+    width: 100%;
+    margin-top: 100px;
+  
+  }
+  
+  .text-main {
+    font-size: 100px;
+    color: #FFC914;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 150px;
+    font-family: 'Concert One', cursive;
+    letter-spacing: 10px;
+  }
+  
+  .para-main {
+    color: white;
+    font-size: 50px;
+  }
+  
+  .para-main p {
+    color: white;
+    font-size: 30px;
+  }
+  
+  .btn-offer {
+    background-color: #FFC914;
+    color: #110F10;
+    text-transform: uppercase;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    border: none !important;
+    min-width: 100%;
+  
+  }
+  
+  .btn-offer:hover {
+    background-color: #110F10;
+    color: white;
+  }
+  
+
+
 .trash {
   color: rgb(209, 91, 71);
 }
@@ -135,4 +197,7 @@ mat-footer-row mat-footer-cell {
 .search-form-field div.mat-form-field-suffix button {
   height: 32px;
   width: 32px;
+}
+.mat-elevation-z8{
+  background-color: antiquewhite;
 }

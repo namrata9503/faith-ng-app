@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject , Input} from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Customer } from '../../models/customer';
 import { FormControl } from '@angular/forms';
@@ -13,7 +13,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { merge } from 'rxjs';
 
 import { UpdateUserComponent } from '../update-user/update-user.component';
-import { MatTable, MatTableDataSource, MatSort } from '@angular/material';
+import { MatTable, MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 
 import { Observable, of } from 'rxjs';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
@@ -34,15 +34,16 @@ export class AllUsersComponent implements OnInit {
   dialogConfig: MatDialogConfig;
   //dialogRef: MatDialogRef<UpdateUserComponent>;
 
-  // userss: MatTableDataSource<any>;
+ public dataSource = new MatTableDataSource(this.users);
   displayedColumns: string[] = ['username', 'email', 'contact', 'city', 'actions'];
-  dataSource;
+  
   user;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
-  //@ViewChild(MatSort,) sort: MatSort;
-  //@ViewChild(MatPaginator) paginator: MatPaginator;
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator ;
+
   searchKey: string;
 
   constructor(public dialogRef: MatDialogRef<UpdateUserComponent>,
@@ -54,37 +55,48 @@ export class AllUsersComponent implements OnInit {
     private dialog: MatDialog,
     private dialogService: DialogService
 
-  ) { }
+  ) {
+
+   }
 
   ngOnInit() {
 
     this.userService.getAll().pipe(first()).subscribe(users => {
       this.users = users;
-      console.log("users all", users)
+
+      this.dataSource = new MatTableDataSource(this.users);
+
+
+      this.dataSource.sort = this.sort;
+      console.log("users all sort ", this.dataSource);
+      this.dataSource.paginator = this.paginator;
+      console.log("users all paginator ", this.sort);
+
     });
+
     this.userService.getRows().pipe(first()).subscribe(users => {
       this.users = users;
-      console.log("users all", users)
+      // console.log("users all", users)
     });
-    this.userService.getAll()
-      .subscribe((users: User[]) => {
-        this.users = users;
-        this.dataSource = new MatTableDataSource(users);
-        this.dataSource.sort = this.sort;
-      });
-    // this.userService.getById(id).pipe(first()).subscribe(users => {
-    //   this.users = users;
-    //   console.log("users all", users)
-    // });
-  }
 
-  get getAll() {
-    return this.userService.getAll();
 
   }
+  ngAfterViewInit() {
+  
+  }
+
   showInfo(user) {
     this.selectedUser = user;
     console.log(this.selectedUser);
+  }
+  onSearchClear(){
+    this.searchKey="";
+    this.applyFilter();
+  }
+  applyFilter(){
+    this.dataSource = new MatTableDataSource(this.users);
+
+    this.dataSource.filter=this.searchKey.trim().toLowerCase();
   }
   onEdit(row) {
 
