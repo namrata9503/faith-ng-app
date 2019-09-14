@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject , Input} from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, Input } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Customer } from '../../models/customer';
 import { FormControl } from '@angular/forms';
@@ -7,7 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { CustomerService } from '../../services/customer.service';
-import { AuthenticationService } from '../../services/authentication.service';
+import { NotificationService } from '../../services/notification.service';
+
 import { Role } from '../../models/role';
 import { Router, NavigationEnd } from '@angular/router';
 import { merge } from 'rxjs';
@@ -34,15 +35,15 @@ export class AllUsersComponent implements OnInit {
   dialogConfig: MatDialogConfig;
   //dialogRef: MatDialogRef<UpdateUserComponent>;
 
- public dataSource = new MatTableDataSource(this.users);
-  displayedColumns: string[] = ['username', 'email', 'contact', 'city', 'actions'];
-  
+  public dataSource = new MatTableDataSource(this.users);
+  displayedColumns: string[] = ['name', 'email', 'contact', 'city', 'actions'];
+
   user;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator ;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   searchKey: string;
 
@@ -50,14 +51,15 @@ export class AllUsersComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: User,
     private router: Router,
     private custService: CustomerService,
-    private authenticationService: AuthenticationService,
     private userService: UserService,
     private dialog: MatDialog,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private notificationService: NotificationService,
+
 
   ) {
 
-   }
+  }
 
   ngOnInit() {
 
@@ -82,21 +84,21 @@ export class AllUsersComponent implements OnInit {
 
   }
   ngAfterViewInit() {
-  
+
   }
 
   showInfo(user) {
     this.selectedUser = user;
     console.log(this.selectedUser);
   }
-  onSearchClear(){
-    this.searchKey="";
+  onSearchClear() {
+    this.searchKey = "";
     this.applyFilter();
   }
-  applyFilter(){
+  applyFilter() {
     this.dataSource = new MatTableDataSource(this.users);
 
-    this.dataSource.filter=this.searchKey.trim().toLowerCase();
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();
   }
   onEdit(row) {
 
@@ -108,7 +110,7 @@ export class AllUsersComponent implements OnInit {
       this.user = row;
       console.log("After Close: " + result);
       this.userService.getAll().subscribe((res) => {
-        this.userService.users = res as User[];
+        this.dataSource.data = res as User[];
         this.users = res;
         console.log("dialog Ref refresh List: " + res);
       });
@@ -127,16 +129,17 @@ export class AllUsersComponent implements OnInit {
           this.userService.delete(id).subscribe((res) => {
             // this.notificationService.warn('! Deleted successfully');
             console.log("deleted..", res);
-
-          });
-
-          console.log("After Close: " + res);
-          this.userService.getAll().subscribe((res) => {
-            this.userService.users = res as User[];
-            this.users = res;
-            console.log("dialog Ref refresh List: " + res);
+            
+            console.log("After Close: " + res);
+            this.userService.getAll().subscribe((res) => {
+              this.dataSource.data = res as User[];
+              this.users = res;
+              console.log("dialog Ref refresh List: " + res);
+            });
           });
         }
+        this.notificationService.warn('! Deleted successfully');
+
       });
 
   }

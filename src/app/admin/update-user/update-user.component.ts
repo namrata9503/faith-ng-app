@@ -11,6 +11,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { Role } from '../../models/role';
 import { Router, NavigationEnd } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { NotificationService } from 'src/app/services/notification.service';
 
 
 @Component({
@@ -31,7 +32,9 @@ export class UpdateUserComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private userService: UserService
+    private userService: UserService,
+    private notificationService: NotificationService,
+
   ) {
     //this.users = data;
   }
@@ -67,11 +70,11 @@ export class UpdateUserComponent implements OnInit {
      this.refreshUserList();
      console.log("response update.. ",res);
      this.dialogRef.close(this.data);
+     this.notificationService.success(':: Updated successfully');
 
     });
   }
-  // this.refreshUserList();
-  }
+}
 
   refreshUserList() {
     this.userService.getAll().subscribe((res) => {

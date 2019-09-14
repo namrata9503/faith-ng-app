@@ -12,6 +12,7 @@ import { CustomerService } from '../services/customer.service';
 import { ViewChild, OnDestroy, HostListener, Inject, ElementRef } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { NotificationService } from '../services/notification.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -26,18 +27,19 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     private authenticationService: AuthenticationService,
-    ) { }
+    private notificationService:NotificationService
+  ) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
-      password:  ['',Validators.required],
-      city:  ['',Validators.required],
-      contact:  ['',Validators.required],
-      role:  ['',Validators.required]
-});
+      password: ['', Validators.required],
+      city: ['', Validators.required],
+      contact: ['', Validators.required],
+      role: ['', Validators.required]
+    });
   }
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
@@ -47,25 +49,27 @@ export class RegisterComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
-        return;
+      return;
     }
 
     this.loading = true;
     this.userService.registerUser(this.registerForm.value)
-        .pipe(first())
-        .subscribe(
-            data => {
-                // this.alertService.success('Registration successful', true);
-                console.log("In service " + data);
-              // alert(data+"added")
-                this.router.navigate(['/login']);
-               
-            },
-            error => {
-                // this.alertService.error(error);
-               // alert(error);
-                this.loading = false;
-            });
-}
+      .pipe(first())
+      .subscribe(
+        data => {
+          // this.alertService.success('Registration successful', true);
+          console.log("In service " + data);
+          // alert(data+"added")
+          this.router.navigate(['/login']);
+
+        },
+        error => {
+          // this.alertService.error(error);
+          // alert(error);
+          this.loading = false;
+        });
+        this.notificationService.add('! Registered successfully');
+
+  }
 
 }

@@ -3,3 +3,29 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+/* notification */
+snack-bar-container.success {
+  background-color: #5cb85c;
+  color : #fff;
+}
+
+snack-bar-container.warn {
+  background-color: #f99157;
+  color : #fff;
+}
+snack-bar-container.add {
+  background-color: #FFC914;
+  color : black;
+}
+
+snack-bar-container.notification simple-snack-bar{
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+
+.hide{
+  display: none;
+}
+
+ 
