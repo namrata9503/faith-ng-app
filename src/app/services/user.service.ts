@@ -1,24 +1,45 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { URLSearchParams } from '@angular/http';
+import {
+  HttpClientModule,
+
+  HttpParams
+} from "@angular/common/http";
+import { BrowserModule } from "@angular/platform-browser";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+//import { toPromise } from "rxjs/operators";
 
 import * as _ from 'lodash';
 
 import { User } from '../models/user';
 import { Admin } from '../models/admin';
+import { AuthService } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  urlSearchParams = new URLSearchParams();
+  //urlSearchParams.append('email', user.email);
+
+  token:string;
+  social: SocialUser;
+
   user: User;
   users: User[] = [];
-
+  baseUrl: `http://localhost:8080/user/`;
 
   constructor(private http: HttpClient) { }
 
   updateForm: FormGroup = new FormGroup({
     id: new FormControl(null),
+    name: new FormControl(),
     username: new FormControl(),
     email: new FormControl(),
     contact: new FormControl(),
@@ -30,6 +51,7 @@ export class UserService {
   initializeFormGroup() {
     this.updateForm.setValue({
       id: null,
+      name: '',
       username: '',
       email: '',
       contact: '',
@@ -55,18 +77,48 @@ export class UserService {
 
 
   registerUser(user: User) {
-    return this.http.post(`http://localhost:8080/users/register`, user);
+    return this.http.post(`http://localhost:8080/users/register`,user);
   }
+  
+  socialLogin(userData) {
+    const user = new SocialUser();
+    user.name = userData.name;
+   // user.firstname = userData.firstName;
+   // user.lastname = userData.lastName;
+   // user.avatar = userData.photoUrl;
+    user.provider = userData.provider;
+    user.authToken = userData.authToken;
+    console.log(user);
+    return this.http.post<any>('http://localhost:8080/users/social', user)
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
+  }
+
+  checkEmail(user: User) {
+    console.log("POST");
+   
+    
+
+    console.log("user email check...................   " + user.email);
+   
+
+    return this.http.post(`http://localhost:8080/user/${user.email}`,{}).pipe(map((res => console.log(res))));
+  }
+  
   
 
   update(user: User) {
-    console.log("id   "+user.id);
+    console.log("id   " + user.id);
     return this.http.put(`http://localhost:8080/users/` + user.id, user);
   }
 
   delete(id: number) {
     return this.http.delete(`http://localhost:8080/users/` + id);
   }
+
 
 
   populateForm(user) {

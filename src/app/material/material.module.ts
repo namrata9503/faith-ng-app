@@ -50,6 +50,7 @@ import {
 
   ],
   declarations: [],
-  providers: [ { provide: MatDialogTitle, useValue: {} }, { provide: MatDialogRef, useValue: {} }, { provide: MAT_DIALOG_DATA, useValue: [] } ]
+  providers: [ { provide: MatDialogTitle, useValue: {} }, 
+    { provide: MatDialogRef, useValue: {} }, { provide: MAT_DIALOG_DATA, useValue: [] } ]
 })
 export class MaterialModule { }

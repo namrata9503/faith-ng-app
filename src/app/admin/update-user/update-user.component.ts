@@ -50,17 +50,7 @@ export class UpdateUserComponent implements OnInit {
     // console.log("all ", this.userService.getAll);
 
   }
-  // resetForm() {
-  //   if (this.userService.updateForm)
-  //   this.userService.updateForm.reset();
-  //   this.userService.user = {
-  //     id: "",
-  //     username: "",
-  //     city: "",
-  //     contact: "",
-  //     email: ""
-  //   }
-  // }
+ 
 
   edit() {
     if (this.userService.updateForm.value.id !== "") {

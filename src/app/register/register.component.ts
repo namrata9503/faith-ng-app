@@ -51,7 +51,6 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-
     this.loading = true;
     this.userService.registerUser(this.registerForm.value)
       .pipe(first())
@@ -61,14 +60,17 @@ export class RegisterComponent implements OnInit {
           console.log("In service " + data);
           // alert(data+"added")
           this.router.navigate(['/login']);
+          this.notificationService.add('! Registered successfully');
+
 
         },
         error => {
           // this.alertService.error(error);
           // alert(error);
           this.loading = false;
+          this.notificationService.warn('! No registration happen.......');
+
         });
-        this.notificationService.add('! Registered successfully');
 
   }
 

@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
 // Import ng-circle-progress
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { of } from 'rxjs';
@@ -21,7 +22,7 @@ import { fakeBackendProvider } from './helpers/fake.backend';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {  HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -38,6 +39,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthenticationService } from './services/authentication.service';
+
 import { AllUsersComponent } from './admin/all-users/all-users.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
@@ -49,8 +51,33 @@ import { MaterialModule } from './material/material.module';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { UpdateUserComponent } from './admin/update-user/update-user.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import { ForgotComponent } from './forgot/forgot.component';
+import { ResetComponent } from './reset/reset.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPassworddComponent } from './reset-passwordd/reset-passwordd.component';
+
+import { SocialLoginModule } from 'angularx-social-login';
+import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider  } from 'angularx-social-login';
 
 
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('235151173562-iimm1dtji8km5vosa3bl1u19naa5b4po.apps.googleusercontent.com')
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('332565874201101')
+  },
+  {
+    id: LinkedInLoginProvider.PROVIDER_ID,
+    provider: new LinkedInLoginProvider("81nb0qhlqe1q0n")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,22 +87,24 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     ContactComponent,
     TestimonialsComponent,
     OfferComponent,
-
     HomeComponent,
     LoginComponent,
     RegisterComponent,
     AdminComponent,
     AllUsersComponent,
     UpdateUserComponent,
-    MatConfirmDialogComponent
+    MatConfirmDialogComponent,
+    ForgotComponent,
+    ResetComponent,
+    ResetPasswordComponent,
+    ResetPassworddComponent
   ],
   imports: [
     BrowserModule,
-    
+    HttpModule,
     HttpClientModule,
-    HttpClientModule,
-    RouterModule,
-
+     RouterModule,
+    SocialLoginModule,
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -102,7 +131,11 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    AuthenticationService
+    AuthenticationService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
     // provider used to create fake backend
     //fakeBackendProvider
   ],

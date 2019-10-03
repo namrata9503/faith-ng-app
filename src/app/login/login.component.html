@@ -1,47 +1,4 @@
 <section id="login">
-  <!-- 
-<div class="container-fluid">
-  <div class="img-login">
-    <div class="row mt-3">
-      <div class="col-md-12">
-        <div class="alert alert-info col">
-          <strong>Normal User</strong> - Enter correct username and password<br />
-          <strong>Administrator</strong> - U: admin P: admin
-        </div>
-
-        <h2 class="login-header">Login</h2>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" formControlName="username" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-              <div *ngIf="f.username.errors.required">Username is required</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" formControlName="password" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-              <div *ngIf="f.password.errors.required">Password is required</div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <button [disabled]="loading" class="btn btn-primary mb-2">Login</button>
-            <br>
-            <a [routerLink]="['/register']" class="btn btn-link">Register</a>
-            <img *ngIf="loading" class="pl-2"
-              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-            <a routerLink="/admin-login" class="btn btn-link">Admin Login</a>
-          </div>
-          <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 
   <div class="container-fluid">
@@ -59,9 +16,12 @@
               <div class="card-header">
                 <h3>Sign In</h3>
                 <div class="d-flex justify-content-end social_icon">
-                  <span><i class="fab fa-facebook-square" title="login with facebook"></i></span>
-                  <span><i class="fab fa-google-plus-square" title="login with google"></i></span>
-                  <span><i class="fab fa-twitter-square" title="login with twitter"></i></span>
+                  <span><i class="fab fa-facebook-square" (click)="signInWithFacebook()" title="login with facebook"></i></span>
+                  <span><i class="fab fa-google-plus-square" (click)="signInWithGoogle()"
+                      title="login with google"></i></span>
+                  <span><i class="fab fa-linkedin" (click)="signInWithLinkedIn()" title="login with Linkdin">
+
+                  </i></span>
                 </div>
               </div>
               <div class="card-body">
@@ -89,16 +49,17 @@
                       <div *ngIf="f.password.errors.required">Password is required</div>
                     </div>
                   </div>
-                  <div class="row align-items-center remember">
+                  <!-- <div class="row align-items-center remember">
                     <input type="checkbox">Remember Me
-                  </div>
+                  </div> -->
                   <div class="form-group  float-right">
-                    <button [disabled]="loading" class="btn login_btn mb-2">Login</button>
+                    <button [disabled]="loading" class="btn login_btn mb-2"
+                      [disabled]="loginForm.invalid">Login</button>
                     <br>
                     <img *ngIf="loading" class="pl-2"
                       src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                   </div>
-                  <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                  <!-- <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
                   <!-- <input type="submit" value="Login" class="btn float-right login_btn"> -->
 
                 </form>
@@ -108,16 +69,32 @@
                   Don't have an account?<a [routerLink]="['/register']" class="text-warning">Sign Up</a>
                 </div>
                 <div class="d-flex justify-content-center text-warning">
-                  <a href="#" class="text-white">Forgot your password?</a>
+                  <a routerLink="/forgot" class="text-white">Forgot your password?</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
+       
       </div>
+     
+
     </div>
   </div>
+    <!-- <div *ngIf="user" class="card text-center">
+      <h6 class="card-header">
+        Social Login Demo
+      </h6>
+      <div class="card-block"></div>
+      <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+      <div class="card-block">
+        <h4 class="card-title">{{ user.name }}</h4>
+        <p class="card-text">{{ user.email }}</p>
+      </div>
+      <div class="card-block">
+        <button class="btn btn-danger" (click)="logout()">Sign out</button>
+      </div>
 
+    </div> -->
 
 </section>

@@ -21,6 +21,8 @@ import { DOCUMENT } from '@angular/common';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../models/user';
 import { Role } from '../models/role';
+import { AuthService } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
 import { UserService } from '../services/user.service';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 @Component({
@@ -31,12 +33,16 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 export class AboutComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
+  user: SocialUser;
+
+  
 
   offerForm: FormGroup;
   submitted = false;
   loading = false;
   constructor(private formBuilder:FormBuilder,
     private router: Router,
+    private authService: AuthService,
     private custService: CustomerService,    
     private authenticationService: AuthenticationService
     ) {
@@ -126,6 +132,10 @@ export class AboutComponent implements OnInit {
       city: ['', Validators.required],
      
 });
+this.authService.authState.subscribe((user) => {
+  this.user = user;
+  console.log(user);
+});
 
   }
 
@@ -134,6 +144,8 @@ export class AboutComponent implements OnInit {
   }
 
   logout() {
+    this.authService.signOut();
+
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }

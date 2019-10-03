@@ -16,20 +16,22 @@
         <mat-form-field>
             <input class="hide" formControlName="id"  matInput>
 
-          <input  formControlName="username"   matInput placeholder="Name">
-          <!-- <mat-error>This field is mandatory.</mat-error> -->
+          <input  formControlName="name"   matInput placeholder="Name">
+          <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input  formControlName="email" matInput placeholder="Email">
-          <!-- <mat-error>Invalid email address.</mat-error> -->
+          <mat-error>Invalid email address.</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input formControlName="contact"  matInput placeholder="Contact Number">
-          <!-- <mat-error *ngIf="updateForm.controls['contact'].errors?.required">This field is mandatory.</mat-error> -->
-          <!-- <mat-error *ngIf="updateForm.controls['contact'].errors?.minlength">Minimum 8 charactors needed.</mat-error> -->
+          <mat-error *ngIf="userService.updateForm.controls['contact'].errors?.required">This field is mandatory.</mat-error>
+          <mat-error *ngIf="userService.updateForm.controls['contact'].errors?.minlength">Minimum 8 charactors needed.</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input  formControlName="city"  matInput placeholder="City">
+          <mat-error>This field is mandatory.</mat-error>
+
         </mat-form-field>
      
          
@@ -39,7 +41,7 @@
       <div class="controles-container">
       
         <div class="button-row">
-          <button mat-raised-button color="primary" type="submit" >Edit</button>
+          <button mat-raised-button class="bg-warning text-white" type="submit" >Edit</button>
         </div>
       </div>
     </mat-grid-tile>

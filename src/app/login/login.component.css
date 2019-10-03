@@ -163,3 +163,21 @@ input:focus {
   .card-footer{
       margin: 20px;
   }
+  .bg-transparent {
+    background-color: transparent;
+  }
+/* 
+  
+  
+  :host {
+    height: 100%;
+  }
+  
+  .photo {
+    object-fit: contain;
+  } */
+/*   
+  .card {
+    width: 20rem;
+    margin: 0 auto;
+  } */

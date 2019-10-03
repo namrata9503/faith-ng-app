@@ -6,7 +6,8 @@ import { User } from '../models/user';
 import { Role } from '../models/role';
 // import custom validator to validate that password and confirm password fields match
 // import { MustMatch } from './_helpers/must-match.validator';
-
+import { AuthService } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
@@ -37,12 +38,15 @@ export class ContactComponent implements OnInit {
   added = false;
   submitted = false;
   loading = false;
+  user: SocialUser;
 
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     private custService: CustomerService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private authService: AuthService
+
   ) { 
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
 
@@ -68,6 +72,10 @@ export class ContactComponent implements OnInit {
       uphone: ['', Validators.required],
       messagee: ['',]
     });
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      console.log(user);
+    });
   }
 
   get isAdmin() {
@@ -75,6 +83,8 @@ export class ContactComponent implements OnInit {
   }
 
   logout() {
+    this.authService.signOut();
+
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }

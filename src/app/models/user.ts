@@ -1,5 +1,6 @@
 export class User {
     id: string;
+    name:string;
     username: string;
     password: string;
     firstName: string;
@@ -9,4 +10,6 @@ export class User {
     token?: string;
     contact:string;
     city:string;
+    confirmPassword: string;
+
 }

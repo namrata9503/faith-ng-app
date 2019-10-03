@@ -55,9 +55,7 @@ export class AllUsersComponent implements OnInit {
     private dialog: MatDialog,
     private dialogService: DialogService,
     private notificationService: NotificationService,
-
-
-  ) {
+) {
 
   }
 

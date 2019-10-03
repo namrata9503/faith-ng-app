@@ -16,6 +16,10 @@ import { Role } from './models/role';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { AllUsersComponent } from './admin/all-users/all-users.component';
+import { ForgotComponent } from './forgot/forgot.component';
+import { ResetComponent } from './reset/reset.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPassworddComponent } from './reset-passwordd/reset-passwordd.component';
 const routes: Routes = [
   {
     path: 'home',
@@ -38,6 +42,10 @@ const routes: Routes = [
         path: 'all-users',
         component: AllUsersComponent
       }
+      // {
+      //   path: 'back',
+      //   component: AllUsersComponent
+      // }
 
     ]
 
@@ -46,7 +54,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
-
+  {
+    path: 'forgot',
+    component: ForgotComponent
+  },
   {
     path: 'register',
     component: RegisterComponent
@@ -59,6 +70,14 @@ const routes: Routes = [
     component: IndexComponent,
     canActivate: [AuthGuard]
 
+  },
+  {
+    path: 'reset',
+    component: ResetComponent
+  },
+  {
+    path: 'reset/:userId/:token',
+    component: ResetPassworddComponent
   },
   {
     path: 'offer',

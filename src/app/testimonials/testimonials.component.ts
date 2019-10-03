@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
 
 // import custom validator to validate that password and confirm password fields match
 // import { MustMatch } from './_helpers/must-match.validator';
@@ -21,6 +22,7 @@ import { ViewChild, OnDestroy, HostListener, Inject, ElementRef } from '@angular
 export class TestimonialsComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
+  user: SocialUser;
 
   offerForm: FormGroup;
   submitted = false;
@@ -28,7 +30,9 @@ export class TestimonialsComponent implements OnInit {
   constructor(private router: Router, 
     private formBuilder: FormBuilder,
     private custService: CustomerService,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private authService: AuthService
+
     ) { 
       this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
 
@@ -38,7 +42,10 @@ export class TestimonialsComponent implements OnInit {
   elementPosition: any;
   ngOnInit() {
 
-
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      console.log(user);
+    });
 
     this.offerForm = this.formBuilder.group({
       phone: ['', Validators.required],
@@ -56,6 +63,8 @@ export class TestimonialsComponent implements OnInit {
   }
 
   logout() {
+    this.authService.signOut();
+
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }

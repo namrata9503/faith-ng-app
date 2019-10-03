@@ -14,7 +14,8 @@ import { first } from 'rxjs/operators';
 import { CustomerService } from '../services/customer.service';
 
 import { } from 'googlemaps';
-
+import { AuthService } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
 import { } from 'googlemaps';
 import { NgwWowService } from 'ngx-wow';
 import { Subscription } from 'rxjs';
@@ -42,7 +43,8 @@ export class IndexComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
 
-  
+  user: SocialUser;
+
   offerForm: FormGroup;
   submitted = false;
   loading = false;
@@ -52,7 +54,9 @@ export class IndexComponent implements OnInit {
     private formBuilder: FormBuilder,
     private custService: CustomerService,
     private authenticationService: AuthenticationService,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
+
   ) {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(event => {
       // Reload WoW animations when done navigating to page,
@@ -85,7 +89,10 @@ export class IndexComponent implements OnInit {
 
     });
 
-
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      console.log(user);
+    });
     // this.userService.getAllUsers().pipe(first()).subscribe(users => {
     //   this.users = users;
     //   console.log("login users: ", users)
@@ -107,6 +114,8 @@ export class IndexComponent implements OnInit {
   }
 
   logout() {
+    this.authService.signOut();
+
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }

@@ -58,7 +58,7 @@
 import 'zone.js/dist/zone';  // Included with Angular CLI.
 import 'hammerjs';
 
-
+import 'url-search-params-polyfill';
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */

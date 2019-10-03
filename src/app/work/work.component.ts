@@ -23,6 +23,8 @@ import * as AOS from 'aos';
 import { DOCUMENT } from '@angular/common';
 
 import { trigger, state, transition, style, animate } from '@angular/animations';
+import { AuthService } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
@@ -31,6 +33,7 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 export class WorkComponent implements OnInit {
   registerForm: FormGroup;
   offerForm: FormGroup;
+  user: SocialUser;
 
   currentUser: User;
   users: User[] = [];
@@ -40,6 +43,8 @@ export class WorkComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
+    private authService: AuthService
+,
     private custService: CustomerService,
     private authenticationService: AuthenticationService
     ) { 
@@ -70,6 +75,10 @@ export class WorkComponent implements OnInit {
       city: ['', Validators.required]
 
     });
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      console.log(user);
+    });
   }
 
   get isAdmin() {
@@ -77,6 +86,8 @@ export class WorkComponent implements OnInit {
   }
 
   logout() {
+    this.authService.signOut();
+
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
