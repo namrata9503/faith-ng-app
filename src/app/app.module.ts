@@ -58,7 +58,7 @@ import { ResetPassworddComponent } from './reset-passwordd/reset-passwordd.compo
 
 import { SocialLoginModule } from 'angularx-social-login';
 import { AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider  } from 'angularx-social-login';
-
+import { RecaptchaModule } from 'ng-recaptcha';
 
 const config = new AuthServiceConfig([
   {
@@ -109,6 +109,7 @@ export function provideConfig() {
     BrowserAnimationsModule,
     MaterialModule,
     NgwWowModule,
+    RecaptchaModule,
     ReactiveFormsModule,
     OwlModule,  // Specify OwlModule as an import
 

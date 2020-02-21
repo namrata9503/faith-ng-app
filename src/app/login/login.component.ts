@@ -17,11 +17,12 @@ from 'angularx-social-login';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+   // recaptcha: any[];
     sub:any;
     loginForm: FormGroup;
     loading = false;
     submitted = false;
+
     returnUrl: string;
     error = '';
     user: SocialUser;
@@ -47,11 +48,13 @@ export class LoginComponent implements OnInit {
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required]
+           // recaptcha: ['',Validators.required]
         });
-        this.authService.authState.subscribe((user) => {
-            this.user = user;
-            console.log(user);
-          });
+        
+        // this.authService.authState.subscribe((user) => {
+        //     this.user = user;
+        //     console.log(user);
+        //   });
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
@@ -97,7 +100,10 @@ export class LoginComponent implements OnInit {
 
     }
 
-    
+    // resolved(captchaResponse: any[]){
+    //     this.recaptcha = captchaResponse;
+    //     console.log(this.recaptcha);
+    // }
   signInWithGoogle() {
       this.sub = this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((data)=>{
