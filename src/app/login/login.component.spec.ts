@@ -184,7 +184,7 @@ it('created a form with username and password input and login button', () => {
     expect(usernameInput.classList).toContain('ng-invalid');
   });
 
- it('When password is blank, password field should display red outline ', () => {
+ xit('When password is blank, password field should display red outline ', () => {
     updateForm(validUser.username, blankUser.password);
     fixture.detectChanges();
     const button = fixture.debugElement.nativeElement.querySelector('button');
