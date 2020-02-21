@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResetPassworddComponent } from './reset-passwordd.component';
 
-xdescribe('ResetPassworddComponent', () => {
+describe('ResetPassworddComponent', () => {
   let component: ResetPassworddComponent;
   let fixture: ComponentFixture<ResetPassworddComponent>;
 
